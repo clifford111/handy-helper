@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <title>Edit Job</title>
+</head>
+
+<body>
+    <div class="container mt-3">
+        <h1>Edit Your Job Posting</h1>
+        <a href="/dashboard">Back</a>
+        <form action="/dashboard/update/{{ job.id }}" method="POST">
+            {% csrf_token %}
+            <label for="title">TITLE:</label>
+            <input class="form-control" type="text" name="title" id="title" value="{{ job.title }}">
+            <label for="desc">DESCRIPTION:</label>
+            <textarea class="form-control" name="desc" id="desc" rows="7">{{ show.desc }}</textarea>
+            <label for="location">LOCATION:</label>
+            <input class="form-control" type="text" name="location" id="location" value="{{ job.location }}">
+            <button type="submit" class="btn btn-primary mt-3">SUBMIT</button>
+        </form>
+    </div>
+
+
+</body>
+
+</html>
